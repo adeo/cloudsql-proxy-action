@@ -47,17 +47,17 @@ runs:
           -instances=${{ inputs.instance }}=tcp:127.0.0.1:${{ inputs.port }}
 
         # wait until connections are accepted
-#        sleep 3
-#        isready=0
-#        for i in {1..10}; do
-#          echo "Wait for connections to be ready ... $i/10"
-#          (pg_isready --quiet --timeout 3 --host localhost --port ${{ inputs.port }} || exit $?) && true # escape bash's pipefail
-#          isready=$?
-#          if [[ $isready -eq 0 ]]; then
-#            break
-#          fi
-#          sleep 2
-#        done
+        #        sleep 3
+        #        isready=0
+        #        for i in {1..10}; do
+        #          echo "Wait for connections to be ready ... $i/10"
+        #          (pg_isready --quiet --timeout 3 --host localhost --port ${{ inputs.port }} || exit $?) && true # escape bash's pipefail
+        #          isready=$?
+        #          if [[ $isready -eq 0 ]]; then
+        #            break
+        #          fi
+        #          sleep 2
+        #        done
 
         # print container logs
         docker logs gce-cloudsql-proxy
